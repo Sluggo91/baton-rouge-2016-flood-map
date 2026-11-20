@@ -1,2 +1,2 @@
 # baton-rouge-2016-flood-map
-August 2016 flood reference map, Tullier Property Group
+August 2016 flood reference map
