@@ -214,7 +214,10 @@ function parcelHTML(f){
 const results=document.getElementById('results');
 let pin=null;
 const REFNOTE='<div class="refnote">Reference only, not a flood determination. Verify with the disclosure, an elevation certificate and claim history.</div>';
-function setPin(ll){ if(pin) map.removeLayer(pin); pin=L.marker(ll).addTo(map); }
+function clearPin(){ if(pin){ map.removeLayer(pin); pin=null; } hiLayer.clearLayers(); const b=document.getElementById('clearpin'); if(b) b.style.display='none'; }
+function setPin(ll){ if(pin) map.removeLayer(pin); pin=L.marker(ll,{title:'Click to remove pin'}).addTo(map); pin.on('click',e=>{ L.DomEvent.stopPropagation(e); clearPin(); }); const b=document.getElementById('clearpin'); if(b) b.style.display='block'; }
+const clearCtl=L.control({position:'topleft'}); clearCtl.onAdd=()=>{ const d=L.DomUtil.create('button','zoomnote'); d.id='clearpin'; d.type='button'; d.textContent='Remove pin'; d.style.display='none'; d.style.cursor='pointer'; d.style.border='0'; d.style.font='600 12px inherit'; L.DomEvent.disableClickPropagation(d); d.onclick=clearPin; return d; }; clearCtl.addTo(map);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') clearPin(); });
 
 function showParcel(f, clickLL){
   hiLayer.clearLayers(); hiLayer.addData(f);
