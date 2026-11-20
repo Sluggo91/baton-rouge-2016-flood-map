@@ -67,7 +67,6 @@
     <li>Always confirm with the seller's disclosure, an elevation certificate, an official flood determination and the property's flood claim history.</li>
   </ul>
   <button id="agree" type="button">I understand, show me the map</button>
-  <div class="small">Damien Tullier, Broker · Tullier Property Group (Buying Baton Rouge, L.L.C.) · Baton Rouge, Louisiana · Licensed in Louisiana · (225) 416-5045. Equal Housing Opportunity.</div>
 </div></div>
 <div id="app">
   <aside id="side">
@@ -80,18 +79,16 @@
       <button class="tab" data-mode="parcel">Parcel search</button>
     </div>
     <form id="f">
-      <input id="q" placeholder="e.g. 10127 Grayton Dr, Baton Rouge" autocomplete="off">
+      <input id="q" placeholder="e.g. 123 Main St, Denham Springs" autocomplete="off">
       <button type="submit">Search</button>
     </form>
     <div class="hint" id="hint">Type an address. You'll get whether the 2016 water reached it, the nearest surveyed high-water mark, and the parcel it sits on.</div>
     <div id="results"></div>
     <footer>
-      <b>Questions about a property or its flood history?</b> Call or text Damien at (225) 416-5045 or email damien@tulliergroup.com. <a href="https://tullierpropertygroup.com" target="_blank">tullierpropertygroup.com</a><br><br>
       <b>How to read this.</b> Blue is the USGS estimate of the August 2016 flood extent, built from surveyed high-water marks and ground elevation. It covers flooding from the main river channels inside the dashed USGS study area only. Smaller creeks and local drainage (for example around Walker, Grays Creek, or Jones Creek and Beaver Bayou in Baton Rouge) are not fully modeled. Outside that line, "no blue" means not mapped, not dry. Homes can also have flooded from local drainage or ponding that this map does not show, so treat it as a strong reference and confirm with the seller's disclosure, elevation certificate and flood claim history.<br><br>
       <b>Sources.</b> Flood extent and high-water marks: Heal and Watson, 2017, USGS data release <a href="https://doi.org/10.5066/F79K48C1" target="_blank">doi.org/10.5066/F79K48C1</a> (simplified for web display, about 6 m tolerance). FEMA National Flood Hazard Layer (live). Parcels: East Baton Rouge Parish Assessor via EBRGIS, and the public Livingston Parish Assessor Parcels layer on ArcGIS Online (live; check the assessor's site for the latest ownership). Address lookup: Esri World Geocoder.<br><br>
-      <b>Disclaimer.</b> This map is provided free as a general reference tool only. It is not a flood zone determination, elevation certificate, survey, appraisal, inspection, or insurance, legal or engineering advice, and it does not show or guarantee whether any specific structure flooded in 2016 or will flood in the future. The 2016 flood extent is an estimate published by the U.S. Geological Survey, simplified here for web display; it covers flooding from the Amite and Comite rivers inside the USGS study area only, and does not include flooding from smaller creeks, drainage or ponding. FEMA flood zones, parcel boundaries, ownership and values are pulled live from third-party public sources that may be incomplete, out of date or temporarily unavailable. Tullier Property Group has not independently verified this information and makes no warranty of any kind as to its accuracy or completeness. Do not rely on it to make a purchase, sale, lending or insurance decision. Before buying or selling, review the seller's property disclosure, obtain an elevation certificate and an official flood zone determination, ask about prior flood insurance claims, and consult a licensed insurance agent, surveyor or attorney as needed. Use of this map means you accept these terms.<br><br>
-      Equal Housing Opportunity. Published November 2026.
-      <div class="disc"><b>Damien Tullier, Broker</b> · Tullier Property Group (Buying Baton Rouge, L.L.C.)<br>Baton Rouge, Louisiana · Licensed in Louisiana · (225) 416-5045</div>
+      <b>Disclaimer.</b> This map is provided free as a general reference tool only. It is not a flood zone determination, elevation certificate, survey, appraisal, inspection, or insurance, legal or engineering advice, and it does not show or guarantee whether any specific structure flooded in 2016 or will flood in the future. The 2016 flood extent is an estimate published by the U.S. Geological Survey, simplified here for web display; it covers flooding from the Amite and Comite rivers inside the USGS study area only, and does not include flooding from smaller creeks, drainage or ponding. FEMA flood zones, parcel boundaries, ownership and values are pulled live from third-party public sources that may be incomplete, out of date or temporarily unavailable. This information has not been independently verified, and the publisher makes no warranty of any kind as to its accuracy or completeness. Do not rely on it to make a purchase, sale, lending or insurance decision. Before buying or selling, review the seller's property disclosure, obtain an elevation certificate and an official flood zone determination, ask about prior flood insurance claims, and consult a licensed insurance agent, surveyor or attorney as needed. Use of this map means you accept these terms.<br><br>
+      Published November 2026.
     </footer>
   </aside>
   <div id="map"></div>
@@ -256,7 +253,7 @@ let mode='address';
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t)); mode=t.dataset.mode;
   const q=document.getElementById('q'), h=document.getElementById('hint');
-  if(mode==='address'){ q.placeholder='e.g. 10127 Grayton Dr, Baton Rouge'; h.textContent="Type an address. You'll get whether the 2016 water reached it, the nearest surveyed high-water mark, and the parcel it sits on."; }
+  if(mode==='address'){ q.placeholder='e.g. 123 Main St, Denham Springs'; h.textContent="Type an address. You'll get whether the 2016 water reached it, the nearest surveyed high-water mark, and the parcel it sits on."; }
   else { q.placeholder='Owner name, street address, or parcel #'; h.textContent='Searches East Baton Rouge and Livingston parish parcel records. Try a last name ("SMITH, JOHN"), a street address ("1234 MAIN ST"), or a parcel/assessment number.'; }
 });
 
